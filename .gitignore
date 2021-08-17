@@ -1,52 +1,37 @@
-# Prerequisites
-*.d
+/* Topic : A program that will take the measurements of slide calipers
+           and find the length of a object
+   Author: Mehrab Kabir
+ */
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+#include<stdio.h>
+int main ()
+{
+    
+    float main_scale,vernier_scale,div,vc; // main_scale = main scale reading 
+                                           //vernier_scale = vernier scale reading
+                                           //vc = vernier constant
+     double m_r,v,length; /* m_r = main scale reading, v = vernier super imposition
+                               v_c = vernier constant */
+   
+    printf("Enter the smallest division of vernier scale : \n");
+    scanf("%f",&vernier_scale);
+    
+    printf("Enter the smallest division of main scale : \n");
+    scanf("%f",&main_scale);
+    
+    div = main_scale / vernier_scale;
+    vc = (float)1 - div;
+    printf("Required Vernier Constant : %.3f \n",vc); 
+    
+    printf("Enter the main scale reading = \n");
+    scanf("%lf",&m_r);
+    
+    printf("Enter the vernier super imposition = \n");
+    scanf("%lf",&v);
+    
+    length = m_r + v * vc;
+    printf("The length of the object : %.3lf \n",length);
+    
+    return 0;
+    
+}
